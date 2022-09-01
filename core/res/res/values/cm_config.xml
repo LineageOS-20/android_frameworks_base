@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <!--
-     Copyright (C) 2020-2023 The LineageOS Project
+     Copyright (C) 2020-2022 The LineageOS Project
 
      Licensed under the Apache License, Version 2.0 (the "License");
      you may not use this file except in compliance with the License.
@@ -15,12 +15,10 @@
      limitations under the License.
 -->
 <resources>
-    <!-- For dynamic default font styles -->
-    <java-symbol type="string" name="config_bodyFontFamily" />
 
     <!-- Fingerprint from a certified device against current platform SPL level -->
-    <java-symbol type="string" name="config_certifiedFingerprint" />
+    <string name="config_certifiedFingerprint" translatable="false"></string>
 
     <!-- Fingerprint from stock ROM -->
-    <java-symbol type="string" name="config_stockFingerprint" />
+    <string name="config_stockFingerprint" translatable="false"></string>
 </resources>

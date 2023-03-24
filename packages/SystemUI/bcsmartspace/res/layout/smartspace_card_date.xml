@@ -7,7 +7,7 @@
     android:baselineAligned="false">
 
     <RelativeLayout
-        android:id="@+id/text_group"
+        android:id="@id/text_group"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:clipChildren="false"
@@ -18,7 +18,7 @@
         app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.systemui.smartspace.IcuDateTextView
-            android:id="@+id/date"
+            android:id="@id/date"
             android:layout_width="0.0dip"
             android:layout_height="wrap_content"
             android:focusable="true"
@@ -27,10 +27,10 @@
             style="@style/EnhancedSmartspaceTextTitle" />
 
         <androidx.constraintlayout.widget.ConstraintLayout
-            android:id="@+id/smartspace_subtitle_group"
+            android:id="@id/smartspace_subtitle_group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/date"
+            android:layout_below="@id/date"
             android:layout_marginTop="@dimen/enhanced_smartspace_subtitle_margin_top">
 
             <include
@@ -39,10 +39,10 @@
         </androidx.constraintlayout.widget.ConstraintLayout>
 
         <LinearLayout
-            android:id="@+id/smartspace_extras_group"
+            android:id="@id/smartspace_extras_group"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/smartspace_subtitle_group"
+            android:layout_below="@id/smartspace_subtitle_group"
             android:layout_marginTop="8.0dip"
             android:orientation="horizontal"
             android:visibility="gone">

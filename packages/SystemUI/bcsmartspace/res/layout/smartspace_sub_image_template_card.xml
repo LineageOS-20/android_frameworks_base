@@ -8,7 +8,7 @@
     android:clipToPadding="false">
 
     <ImageView
-        android:id="@+id/image_view"
+        android:id="@id/image_view"
         android:layout_width="0.0dip"
         android:layout_height="fill_parent"
         android:background="@drawable/outline_rounded_secondary_card"

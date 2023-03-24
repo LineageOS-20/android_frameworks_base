@@ -6,7 +6,7 @@
     android:layout_height="fill_parent">
 
     <ImageView
-        android:id="@+id/flight_qr_code"
+        android:id="@id/flight_qr_code"
         android:layout_width="0.0dip"
         android:layout_height="fill_parent"
         android:background="@drawable/bg_flight_qr_code"

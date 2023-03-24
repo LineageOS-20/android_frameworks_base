@@ -11,7 +11,7 @@
     android:paddingTop="12.0dip">
 
     <TextView
-        android:id="@+id/head_to_head_title"
+        android:id="@id/head_to_head_title"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:visibility="gone"
@@ -21,52 +21,52 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/first_competitor_icon"
+        android:id="@id/first_competitor_icon"
         android:layout_width="0.0dip"
         android:layout_height="0.0dip"
         android:visibility="gone"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintDimensionRatio="1:1"
-        app:layout_constraintEnd_toStartOf="@+id/first_competitor_text"
+        app:layout_constraintEnd_toStartOf="@id/first_competitor_text"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/head_to_head_title"
+        app:layout_constraintTop_toBottomOf="@id/head_to_head_title"
         app:tint="?android:textColorPrimary" />
 
     <ImageView
-        android:id="@+id/second_competitor_icon"
+        android:id="@id/second_competitor_icon"
         android:layout_width="0.0dip"
         android:layout_height="0.0dip"
         android:visibility="gone"
-        app:layout_constraintBottom_toBottomOf="@+id/first_competitor_icon"
+        app:layout_constraintBottom_toBottomOf="@id/first_competitor_icon"
         app:layout_constraintDimensionRatio="1:1"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/second_competitor_text"
-        app:layout_constraintTop_toTopOf="@+id/first_competitor_icon"
+        app:layout_constraintStart_toEndOf="@id/second_competitor_text"
+        app:layout_constraintTop_toTopOf="@id/first_competitor_icon"
         app:tint="?android:textColorPrimary" />
 
     <TextView
-        android:id="@+id/first_competitor_text"
+        android:id="@id/first_competitor_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="4.0dip"
         android:visibility="gone"
         style="@style/EnhancedSmartspaceTextSubtitle"
-        app:layout_constraintBottom_toBottomOf="@+id/first_competitor_icon"
-        app:layout_constraintEnd_toStartOf="@+id/second_competitor_text"
-        app:layout_constraintStart_toEndOf="@+id/first_competitor_icon"
-        app:layout_constraintTop_toTopOf="@+id/first_competitor_icon" />
+        app:layout_constraintBottom_toBottomOf="@id/first_competitor_icon"
+        app:layout_constraintEnd_toStartOf="@id/second_competitor_text"
+        app:layout_constraintStart_toEndOf="@id/first_competitor_icon"
+        app:layout_constraintTop_toTopOf="@id/first_competitor_icon" />
 
     <TextView
-        android:id="@+id/second_competitor_text"
+        android:id="@id/second_competitor_text"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginEnd="4.0dip"
         android:layout_marginStart="12.0dip"
         android:visibility="gone"
         style="@style/EnhancedSmartspaceTextSubtitle"
-        app:layout_constraintBottom_toBottomOf="@+id/second_competitor_icon"
-        app:layout_constraintEnd_toStartOf="@+id/second_competitor_icon"
-        app:layout_constraintStart_toEndOf="@+id/first_competitor_text"
-        app:layout_constraintTop_toTopOf="@+id/second_competitor_icon" />
+        app:layout_constraintBottom_toBottomOf="@id/second_competitor_icon"
+        app:layout_constraintEnd_toStartOf="@id/second_competitor_icon"
+        app:layout_constraintStart_toEndOf="@id/first_competitor_text"
+        app:layout_constraintTop_toTopOf="@id/second_competitor_icon" />
 
 </com.google.android.systemui.smartspace.uitemplate.HeadToHeadTemplateCard>

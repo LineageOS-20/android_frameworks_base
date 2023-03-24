@@ -1,5 +1,8 @@
 package com.google.android.systemui.smartspace;
 
+import static java.util.Objects.requireNonNull;
+
+import androidx.annotation.NonNull;
 import android.app.smartspace.SmartspaceAction;
 import android.app.smartspace.SmartspaceTarget;
 import android.content.ComponentName;
@@ -14,6 +17,7 @@ import android.view.View;
 import com.android.systemui.R;
 import com.android.systemui.broadcast.BroadcastDispatcher;
 import com.android.systemui.dagger.SysUISingleton;
+import com.android.systemui.dagger.qualifiers.Main;
 import com.android.systemui.plugins.BcSmartspaceDataPlugin;
 import com.android.systemui.settings.UserTracker;
 import com.android.systemui.statusbar.NotificationMediaManager;
@@ -21,10 +25,6 @@ import com.android.systemui.util.concurrency.DelayableExecutor;
 
 import javax.inject.Inject;
 
-import kotlin.Unit;
-import kotlin.jvm.internal.Intrinsics;
-
-/* compiled from: KeyguardMediaViewController.kt */
 @SysUISingleton
 public final class KeyguardMediaViewController {
     private CharSequence artist;
@@ -52,7 +52,7 @@ public final class KeyguardMediaViewController {
     private final BcSmartspaceDataPlugin plugin;
     private BcSmartspaceDataPlugin.SmartspaceView smartspaceView;
     private CharSequence title;
-    private final DelayableExecutor uiExecutor;
+    private final @Main DelayableExecutor uiExecutor;
 
     private final Handler mMainHandler;
     private final UserTracker mUserTracker;
@@ -60,29 +60,20 @@ public final class KeyguardMediaViewController {
     private final UserTracker.Callback mUserChangedCallback =
             new UserTracker.Callback() {
                 @Override
-                public void onUserChanged(int newUser, Context userContext) {
-                   if (userContext != null) {
+                public void onUserChanged(int newUser, @NonNull Context userContext) {
                     reset();
-                   }
                 }
             };
 
     @Inject
     public KeyguardMediaViewController(
-            Context context,
-            BcSmartspaceDataPlugin plugin,
-            DelayableExecutor uiExecutor,
-            NotificationMediaManager mediaManager,
-            BroadcastDispatcher broadcastDispatcher,
-            UserTracker userTracker,
-            Handler mainHandler) {
-        Intrinsics.checkNotNullParameter(context, "context");
-        Intrinsics.checkNotNullParameter(plugin, "plugin");
-        Intrinsics.checkNotNullParameter(uiExecutor, "uiExecutor");
-        Intrinsics.checkNotNullParameter(mediaManager, "mediaManager");
-        Intrinsics.checkNotNullParameter(broadcastDispatcher, "broadcastDispatcher");
-        Intrinsics.checkNotNullParameter(userTracker, "userTracker");
-        Intrinsics.checkNotNullParameter(mainHandler, "mainHandler");
+            @NonNull Context context,
+            @NonNull BcSmartspaceDataPlugin plugin,
+            @NonNull @Main DelayableExecutor uiExecutor,
+            @NonNull NotificationMediaManager mediaManager,
+            @NonNull BroadcastDispatcher broadcastDispatcher,
+            @NonNull UserTracker userTracker,
+            @Main Handler mainHandler) {
         this.context = context;
         this.plugin = plugin;
         this.uiExecutor = uiExecutor;
@@ -109,10 +100,9 @@ public final class KeyguardMediaViewController {
         plugin.addOnAttachStateChangeListener(
                 new View.OnAttachStateChangeListener() {
                     @Override
-                    public void onViewAttachedToWindow(View v) {
+                    public void onViewAttachedToWindow(@NonNull View v) {
                         NotificationMediaManager notificationMediaManager;
                         NotificationMediaManager.MediaListener keyguardMediaViewController;
-                        Intrinsics.checkNotNullParameter(v, "v");
                         setSmartspaceView((BcSmartspaceDataPlugin.SmartspaceView) v);
                         notificationMediaManager = mediaManager;
                         keyguardMediaViewController = mediaListener;
@@ -120,10 +110,9 @@ public final class KeyguardMediaViewController {
                     }
 
                     @Override
-                    public void onViewDetachedFromWindow(View v) {
+                    public void onViewDetachedFromWindow(@NonNull View v) {
                         NotificationMediaManager notificationMediaManager;
                         NotificationMediaManager.MediaListener keyguardMediaViewController;
-                        Intrinsics.checkNotNullParameter(v, "v");
                         setSmartspaceView(null);
                         notificationMediaManager = mediaManager;
                         keyguardMediaViewController = mediaListener;
@@ -139,7 +128,6 @@ public final class KeyguardMediaViewController {
             reset();
             return;
         }
-        Unit unit = null;
         if (mediaMetadata == null) {
             charSequence = null;
         } else {
@@ -174,11 +162,8 @@ public final class KeyguardMediaViewController {
             BcSmartspaceDataPlugin.SmartspaceView smartspaceView = getSmartspaceView();
             if (smartspaceView != null) {
                 smartspaceView.setMediaTarget(build2);
-                unit = Unit.INSTANCE;
+                return;
             }
-        }
-        if (unit != null) {
-            return;
         }
         reset();
     }

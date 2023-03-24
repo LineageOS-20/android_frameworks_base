@@ -19,7 +19,7 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 import androidx.viewpager.widget.PagerAdapter;
 import com.android.internal.graphics.ColorUtils;
 import com.android.launcher3.icons.GraphicsUtils;
-import com.android.systemui.bcsmartspace.R;
+import com.android.systemui.R;
 import com.android.systemui.plugins.BcSmartspaceDataPlugin;
 import com.google.android.systemui.smartspace.logging.BcSmartspaceCardLoggerUtil;
 import com.google.android.systemui.smartspace.logging.BcSmartspaceCardLoggingInfo;
@@ -438,7 +438,7 @@ public class CardPagerAdapter extends PagerAdapter {
                     TapAction build = new TapAction.Builder(uuid2).setIntent(BcSmartSpaceUtil.getOpenCalendarIntent()).build();
                     bcNextAlarmData = bcNextAlarmData2;
                     i5 = 8;
-                    BcSmartSpaceUtil.setOnClickListener(baseTemplateCard.mDateView, baseTemplateCard.mTarget, build, eventNotifier, "SsBaseTemplateCard", bcSmartspaceCardLoggingInfo2, 0);
+                    BcSmartSpaceUtil.setOnClickListener(baseTemplateCard, baseTemplateCard.mTarget, build, eventNotifier, "SsBaseTemplateCard", bcSmartspaceCardLoggingInfo2, 0);
                 }
                 baseTemplateCard.setUpTextView(baseTemplateCard.mTitleTextView, baseTemplateCard.mTemplateData.getPrimaryItem(), eventNotifier);
                 baseTemplateCard.setUpTextView(baseTemplateCard.mSubtitleTextView, baseTemplateCard.mTemplateData.getSubtitleItem(), eventNotifier);

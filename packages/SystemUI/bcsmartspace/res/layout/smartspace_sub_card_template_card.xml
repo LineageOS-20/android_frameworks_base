@@ -9,19 +9,19 @@
     android:clipToPadding="false">
 
     <ImageView
-        android:id="@+id/image_view"
+        android:id="@id/image_view"
         android:layout_width="32.0dip"
         android:layout_height="32.0dip"
         android:layout_margin="4.0dip"
         android:visibility="gone"
-        app:layout_constraintBottom_toTopOf="@+id/card_prompt"
+        app:layout_constraintBottom_toTopOf="@id/card_prompt"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_chainStyle="packed" />
 
     <TextView
-        android:id="@+id/card_prompt"
+        android:id="@id/card_prompt"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"
@@ -34,6 +34,6 @@
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/image_view" />
+        app:layout_constraintTop_toBottomOf="@id/image_view" />
 
 </com.google.android.systemui.smartspace.uitemplate.SubCardTemplateCard>

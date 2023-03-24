@@ -7,7 +7,7 @@
     android:baselineAligned="false">
 
     <androidx.constraintlayout.widget.ConstraintLayout
-        android:id="@+id/secondary_card_group"
+        android:id="@id/secondary_card_group"
         android:layout_width="wrap_content"
         android:layout_height="fill_parent"
         android:paddingEnd="@dimen/enhanced_smartspace_secondary_card_padding_end"
@@ -22,7 +22,7 @@
         layout="@layout/smartspace_title_subtitle_pane"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toEndOf="@+id/secondary_card_group"
+        app:layout_constraintStart_toEndOf="@id/secondary_card_group"
         app:layout_constraintTop_toTopOf="parent" />
 
 </com.google.android.systemui.smartspace.BcSmartspaceCard>
